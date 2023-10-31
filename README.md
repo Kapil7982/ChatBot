@@ -21,7 +21,7 @@ Before you begin, make sure you have the following software installed:
    git clone <https://github.com/Kapil7982/ChatBot.git>
 ```
 
-### AFeatures
+### Features
 Send messages to a chatbot.
 Receive responses from the chatbot.
 Messages are displayed in a conversation-style chat window.
