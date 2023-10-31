@@ -7,8 +7,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 # Set your OpenAI API key and NewsAPI key here
-openai.api_key = "pasteyourapikeyhere"
-os.environ["NEWS_API_KEY"] = "pasteyourapikeyhere"
+openai.api_key = "paste_your_api_key_here"
+os.environ["NEWS_API_KEY"] = "paste_your_api_key_here"
 
 app = Flask(__name__)
 

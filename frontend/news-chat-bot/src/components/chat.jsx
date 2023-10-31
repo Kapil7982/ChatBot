@@ -11,17 +11,36 @@ const Chat = () => {
     setUserInput('');
   
     try {
+      // Your axios request here
       const response = await axios.post('http://localhost:5000/query', { messages: [...messages, newMessage] });
-      const responseData = response.data;
-      console.log(responseData)
-      const botResponse = { role: 'system', content: responseData.response };
-      setMessages([...messages, botResponse]);
+  
+      let responseData;
+  
+      try {
+        responseData = JSON.parse(response.data.response);
+        console.log(responseData.data)
+      } catch (error) {
+        responseData = response.data.response; // Treat it as plain text
+      }
+  
+      if (Array.isArray(responseData)) {
+        responseData.forEach((article, index) => {
+          const sentence = `Title: ${article.title}, Author: ${article.author}`;
+          const botResponse = { role: 'system', content: sentence };
+          setTimeout(() => {
+            setMessages(prevMessages => [...prevMessages, botResponse]);
+          }, index * 1000); // Delay each sentence by 1 second
+        });
+      } else {
+        const botResponse = { role: 'system', content: responseData };
+        setMessages(prevMessages => [...prevMessages, botResponse]);
+      }
     } catch (error) {
       console.error('Error sending message:', error);
     }
   };
-
-
+  
+  
   
   return (
     <div className="chat-container">

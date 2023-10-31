@@ -21,11 +21,14 @@ h1 {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
-  max-width: 100%;
+  width: 40%; /* Set the width to 80% */
+  max-height: 400px; /* Set the max-height to 400px */
   margin: 0 auto;
   padding: 10px;
   box-shadow: 0px 0px 10px 0px #aaa;
+  overflow-y: auto; /* Add a scrollbar if content exceeds 400px in height */
 }
+
 
 .chat-messages {
   height: 250px;
@@ -44,8 +47,13 @@ h1 {
 .user {
   background-color: #007bff;
   color: #fff;
+  max-width: 100%; /* Set the max-width to 100% */
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
   align-self: flex-end;
 }
+
 
 .bot {
   background-color: #f0f0f0;
